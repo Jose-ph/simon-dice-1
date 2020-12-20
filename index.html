@@ -12,22 +12,34 @@
     <div class="container">
    <div class="row barra-estado"> 
 
-    <div class="col-8">ACA VA EL ESTADO</div>
-    <div class="col-2">ACA VA EL BOTON JUGAR</div>
-    <div class="col-2">ACA OTRO BOTON</div>
+    <div class="col-8" id="estado">
+
+        <div class="alert alert-info" role="alert">
+            ESTADO
+          </div>
+        
+        </div>
+    <div class="col-2" id="boton-jugar">
+        <button type="button" class="btn btn-primary">JUGAR</button>
+        
+        </div>
+    <div class="col-2">
+        
+        <button type="button" class="btn btn-warning">RESETEAR</button>    
+    </div>
     </div>
 
    </div>
    <div class="container" id="tablero">
    <div class="row ">
-    <div class="col-6 block cuadro1 border border-4" id="rojo">ROJO</div>
-    <div class="col-6 block cuadro2 border border-4" id="azul">AZUL</div>
+    <div class="col-6 block cuadro1 border border-4  cuadro" id="rojo">ROJO</div>
+    <div class="col-6 block cuadro2 border border-4 cuadro" id="azul">AZUL</div>
    
    </div>
 
    <div class="row ">
-    <div class="col-6 block cuadro3 border border-4 " id="verde">VERDE</div>
-    <div class="col-6 block  cuadro4 border border-4" id="amarillo">AMARILLO</div>
+    <div class="col-6 block cuadro3 border border-4 cuadro " id="verde">VERDE</div>
+    <div class="col-6 block  cuadro4 border border-4 cuadro" id="amarillo">AMARILLO</div>
    </div>
 
 </div>
