@@ -25,3 +25,15 @@ $botonResetear.onclick = function(){
 }
 
 $estado.innerText = "El juego está en preparación";
+
+
+
+function iluminarCuadros(secuencia){
+
+    let secuenciaPrueba = ["rojo","azul", "amarillo", "verde"]
+
+
+    Math.round(Math.random() * (3 - 0) + 0) // esto pone el rango para que salga el índice
+
+
+}
