@@ -26,14 +26,18 @@ $botonResetear.onclick = function(){
 
 $estado.innerText = "El juego está en preparación";
 
+function obtenerCuadroAleatorio(){
 
+   let indiceAleatorio = Math.round(Math.random() * 3) // esto pone el rango para que salga el índice
+
+}
 
 function iluminarCuadros(secuencia){
 
-    let secuenciaPrueba = ["rojo","azul", "amarillo", "verde"]
+    let secuenciaPrueba = ["rojo","azul", "amarillo", "verde"];
 
 
-    Math.round(Math.random() * (3 - 0) + 0) // esto pone el rango para que salga el índice
+    
 
 
 }
