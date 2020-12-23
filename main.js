@@ -14,18 +14,27 @@ let $cuadroAzul = document.querySelector('#azul');
 
 let $cuadroAmarillo = document.querySelector('#amarillo');
 
+let secuenciaMaquina = [];
+
 
 $botonJugar.onclick = function(){
     console.log("QUE EMPIECE EL JUEGO");
+
+
     
-    setTimeout(encenderCuadroRojo, 500);
-    setTimeout(apagarCuadroRojo,1000);
-    setTimeout(encenderCuadroAzul, 500);
-    setTimeout(apagarCuadroAzul,1000);
-    setTimeout(encenderCuadroVerde, 500);
-    setTimeout(apagarCuadroVerde,1000);
-    setTimeout(encenderCuadroAmarillo, 500);
-    setTimeout(apagarCuadroAmarillo,1000);
+
+    secuenciaMaquina.push(obtenerCuadroAleatorio());
+
+    console.log(secuenciaMaquina);
+    
+    //setTimeout(encenderCuadroRojo, 500);
+    //setTimeout(apagarCuadroRojo,1000);
+    //setTimeout(encenderCuadroAzul, 500);
+    //setTimeout(apagarCuadroAzul,1000);
+    //setTimeout(encenderCuadroVerde, 500);
+    //setTimeout(apagarCuadroVerde,1000);
+    //setTimeout(encenderCuadroAmarillo, 500);
+   // setTimeout(apagarCuadroAmarillo,1000);
    // setInterval(apagarCuadroRojo,1500 );
     
 }
@@ -41,19 +50,26 @@ $botonResetear.onclick = function(){
 
 function obtenerCuadroAleatorio(){
 
+    let cuadros = document.querySelectorAll('.cuadro');
+    let cuadroElegido ;
    let indiceAleatorio = Math.round(Math.random() * 3) // esto pone el rango para que salga el índice
 
+
+   for(i=0 ; i< cuadros.length ; i++){
+
+        cuadroElegido = cuadros[indiceAleatorio];
+
+
+   
+     }
+
+     return cuadroElegido;
 }
 
-function iluminarCuadros(secuencia){
-
-    let secuenciaPrueba = ["rojo","azul", "amarillo", "verde"];
 
 
-    
 
 
-}
 
 function encenderCuadroRojo(evento){
 
