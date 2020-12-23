@@ -17,19 +17,27 @@ let $cuadroAmarillo = document.querySelector('#amarillo');
 
 $botonJugar.onclick = function(){
     console.log("QUE EMPIECE EL JUEGO");
-
+    
     setTimeout(encenderCuadroRojo, 500);
     setTimeout(apagarCuadroRojo,1000);
+    setTimeout(encenderCuadroAzul, 500);
+    setTimeout(apagarCuadroAzul,1000);
+    setTimeout(encenderCuadroVerde, 500);
+    setTimeout(apagarCuadroVerde,1000);
+    setTimeout(encenderCuadroAmarillo, 500);
+    setTimeout(apagarCuadroAmarillo,1000);
    // setInterval(apagarCuadroRojo,1500 );
     
 }
 
 $botonResetear.onclick = function(){
-
+    //acaponercosasparavolver todo a cero
     console.log("TOCASTE RESETEAR");
+
+    $estado.innerText = "El juego está en preparación";
 }
 
-$estado.innerText = "El juego está en preparación";
+
 
 function obtenerCuadroAleatorio(){
 
@@ -63,3 +71,60 @@ function apagarCuadroRojo(evento){
     $cuadroRojo.style.backgroundColor = "red";
 }
 
+function encenderCuadroAzul (evento){
+
+    let $cuadroAzul = document.querySelector('#azul');
+
+    $cuadroAzul.style.backgroundColor = "#7779f9";
+
+
+}
+
+function apagarCuadroAzul (evento){
+
+    let $cuadroAzul = document.querySelector('#azul');
+
+    $cuadroAzul.style.backgroundColor = "blue";
+
+
+}
+
+function encenderCuadroVerde (evento){
+
+    let $cuadroVerde = document.querySelector('#verde');
+
+    $cuadroVerde.style.backgroundColor = "#57d16d";
+
+
+}
+
+function apagarCuadroVerde (evento){
+
+    let $cuadroVerde = document.querySelector('#verde');
+
+    $cuadroVerde.style.backgroundColor = "green";
+
+
+}
+
+function encenderCuadroAmarillo (evento){
+
+    let $cuadroAmarillo = document.querySelector('#amarillo');
+
+    $cuadroAmarillo.style.backgroundColor = " #fcfc7c ";
+    
+
+
+}
+
+function apagarCuadroAmarillo (evento){
+
+    let $cuadroAmarillo = document.querySelector('#amarillo');
+
+    $cuadroAmarillo.style.backgroundColor = "yellow";
+
+
+}
+
+
+$estado.innerText = "";
