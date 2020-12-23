@@ -18,14 +18,47 @@ let secuenciaMaquina = [];
 
 
 $botonJugar.onclick = function(){
+
     console.log("QUE EMPIECE EL JUEGO");
-
-
-    
 
     secuenciaMaquina.push(obtenerCuadroAleatorio());
 
+
+    for( i=0 ; i< secuenciaMaquina.length ; i++){
+
+        if (secuenciaMaquina[i] === $cuadroRojo){
+
+            setTimeout(encenderCuadroRojo, 500);
+            setTimeout(apagarCuadroRojo,1000);
+            
+        }
+
+        else if (secuenciaMaquina[i] ===$cuadroAzul){
+
+            setTimeout(encenderCuadroAzul, 500);
+            setTimeout(apagarCuadroAzul,1000);
+
+
+        }
+
+        else if (secuenciaMaquina[i] === $cuadroVerde){
+
+            setTimeout(encenderCuadroVerde, 500);
+            setTimeout(apagarCuadroVerde,1000);
+        }
+
+        else if (secuenciaMaquina[i] ===$cuadroAmarillo ){
+
+
+            setTimeout(encenderCuadroAmarillo, 500);
+             setTimeout(apagarCuadroAmarillo,1000);
+
+        }
+
+
     console.log(secuenciaMaquina);
+        
+    }
     
     //setTimeout(encenderCuadroRojo, 500);
     //setTimeout(apagarCuadroRojo,1000);
