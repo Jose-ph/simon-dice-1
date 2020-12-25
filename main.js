@@ -6,6 +6,7 @@ const $botonJugar = document.querySelector('#boton-jugar')
 const $botonResetear = document.querySelector('#boton-resetear');
 
 let $estado = document.querySelector('#estado');
+
 let $cuadroRojo = document.querySelector('#rojo');
 
 let $cuadroVerde = document.querySelector('#verde');
@@ -16,12 +17,34 @@ let $cuadroAmarillo = document.querySelector('#amarillo');
 
 let secuenciaMaquina = [];
 
+let secuenciaJugador =[]
+
 let nivel;
 
+let indiceReproduccionSecuencia;
 
 $botonJugar.onclick = function(){
 
-    console.log("QUE EMPIECE EL JUEGO");
+
+    
+
+        
+        
+    
+    
+
+    }
+    
+    
+    
+    
+
+    
+
+    
+
+  
+
 
  /*    secuenciaMaquina.push(obtenerCuadroAleatorio());
 
@@ -64,7 +87,7 @@ $botonJugar.onclick = function(){
     
     console.log(secuenciaMaquina); */
     
-}
+
 
 $botonResetear.onclick = function(){
     //acaponercosasparavolver todo a cero
@@ -170,17 +193,28 @@ function apagarCuadroAmarillo (evento){
 }
 
 
+function empezarJuego(){
 
-function empezarPartida(){
+    resetearJuego();
 
+}
+
+
+
+function resetearJuego(){
+
+    nivel = 1;
     secuenciaMaquina = [];
-    nivel = 1 ;
-    secuenciaMaquina.push(obtenerCuadroAleatorio());
-    secuenciaJugador = [];
+    indiceReproduccionSecuencia = 0;
+}
+    
+
+
 
     
 
 
-}
 
-$estado.innerText = "";
+
+
+
