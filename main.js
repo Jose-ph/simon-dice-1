@@ -16,12 +16,14 @@ let $cuadroAmarillo = document.querySelector('#amarillo');
 
 let secuenciaMaquina = [];
 
+let nivel;
+
 
 $botonJugar.onclick = function(){
 
     console.log("QUE EMPIECE EL JUEGO");
 
-    secuenciaMaquina.push(obtenerCuadroAleatorio());
+ /*    secuenciaMaquina.push(obtenerCuadroAleatorio());
 
 
     for( i=0 ; i<secuenciaMaquina.length; i++){
@@ -60,16 +62,7 @@ $botonJugar.onclick = function(){
         
     }
     
-    console.log(secuenciaMaquina);
-    //setTimeout(encenderCuadroRojo, 500);
-    //setTimeout(apagarCuadroRojo,1000);
-    //setTimeout(encenderCuadroAzul, 500);
-    //setTimeout(apagarCuadroAzul,1000);
-    //setTimeout(encenderCuadroVerde, 500);
-    //setTimeout(apagarCuadroVerde,1000);
-    //setTimeout(encenderCuadroAmarillo, 500);
-   // setTimeout(apagarCuadroAmarillo,1000);
-   // setInterval(apagarCuadroRojo,1500 );
+    console.log(secuenciaMaquina); */
     
 }
 
@@ -176,5 +169,18 @@ function apagarCuadroAmarillo (evento){
 
 }
 
+
+
+function empezarPartida(){
+
+    secuenciaMaquina = [];
+    nivel = 1 ;
+    secuenciaMaquina.push(obtenerCuadroAleatorio());
+    secuenciaJugador = [];
+
+    
+
+
+}
 
 $estado.innerText = "";
