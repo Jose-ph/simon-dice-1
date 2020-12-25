@@ -24,7 +24,7 @@ $botonJugar.onclick = function(){
     secuenciaMaquina.push(obtenerCuadroAleatorio());
 
 
-    for( i=0 ; i< secuenciaMaquina.length ; i++){
+    for( i=0 ; i<secuenciaMaquina.length; i++){
 
         if (secuenciaMaquina[i] === $cuadroRojo){
 
@@ -56,10 +56,11 @@ $botonJugar.onclick = function(){
         }
 
 
-    console.log(secuenciaMaquina);
+     
         
     }
     
+    console.log(secuenciaMaquina);
     //setTimeout(encenderCuadroRojo, 500);
     //setTimeout(apagarCuadroRojo,1000);
     //setTimeout(encenderCuadroAzul, 500);
