@@ -7,94 +7,19 @@ const $botonResetear = document.querySelector('#boton-resetear');
 
 let $estado = document.querySelector('#estado');
 
-let $cuadroRojo = document.querySelector('#rojo');
+const $cuadroRojo = document.querySelector('#rojo');
 
-let $cuadroVerde = document.querySelector('#verde');
+const $cuadroVerde = document.querySelector('#verde');
 
-let $cuadroAzul = document.querySelector('#azul');
+const $cuadroAzul = document.querySelector('#azul');
 
-let $cuadroAmarillo = document.querySelector('#amarillo');
+const $cuadroAmarillo = document.querySelector('#amarillo');
 
-let secuenciaMaquina = [];
+// variables para jugar
 
-let secuenciaJugador =[]
+let secuenciaMaquina =[];
 
-let nivel;
-
-let indiceReproduccionSecuencia;
-
-$botonJugar.onclick = function(){
-
-
-    
-
-        
-        
-    
-    
-
-    }
-    
-    
-    
-    
-
-    
-
-    
-
-  
-
-
- /*    secuenciaMaquina.push(obtenerCuadroAleatorio());
-
-
-    for( i=0 ; i<secuenciaMaquina.length; i++){
-
-        if (secuenciaMaquina[i] === $cuadroRojo){
-
-            setTimeout(encenderCuadroRojo, 500);
-            setTimeout(apagarCuadroRojo,1000);
-            
-        }
-
-        else if (secuenciaMaquina[i] ===$cuadroAzul){
-
-            setTimeout(encenderCuadroAzul, 500);
-            setTimeout(apagarCuadroAzul,1000);
-
-
-        }
-
-        else if (secuenciaMaquina[i] === $cuadroVerde){
-
-            setTimeout(encenderCuadroVerde, 500);
-            setTimeout(apagarCuadroVerde,1000);
-        }
-
-        else if (secuenciaMaquina[i] ===$cuadroAmarillo ){
-
-
-            setTimeout(encenderCuadroAmarillo, 500);
-             setTimeout(apagarCuadroAmarillo,1000);
-
-        }
-
-
-     
-        
-    }
-    
-    console.log(secuenciaMaquina); */
-    
-
-
-$botonResetear.onclick = function(){
-    //acaponercosasparavolver todo a cero
-    console.log("TOCASTE RESETEAR");
-
-    $estado.innerText = "El juego está en preparación";
-}
+let secuenciaJugador =[];
 
 
 
@@ -115,9 +40,6 @@ function obtenerCuadroAleatorio(){
 
      return cuadroElegido;
 }
-
-
-
 
 
 
@@ -193,27 +115,14 @@ function apagarCuadroAmarillo (evento){
 }
 
 
-function empezarJuego(){
-
-    resetearJuego();
-
-}
-
-
-
-function resetearJuego(){
-
-    nivel = 1;
-    secuenciaMaquina = [];
-    indiceReproduccionSecuencia = 0;
-}
-    
-
 
 
     
 
 
+
+
+    
 
 
 
