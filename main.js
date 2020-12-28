@@ -38,11 +38,15 @@ $botonJugar.onclick = function(){
     
     crearJugadaMaquina(jugadaMaquina);
 
+    console.log(jugadaMaquina);
 
+    while(turnoMaquina === true){
+
+        iluminarJugadaMaquina(jugadaMaquina , cuadrosDisponibles); 
   
-   console.log(jugadaMaquina);
+        turnoMaquina === false;
+    }
 
-   iluminarJugadaMaquina(jugadaMaquina , cuadrosDisponibles); 
   
    
 
