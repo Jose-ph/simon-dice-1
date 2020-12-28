@@ -19,11 +19,11 @@ const $cuadroAmarillo = document.querySelector('#amarillo');
 
 //let secuenciaMaquina =[$cuadroRojo , $cuadroAzul , $cuadroVerde,$cuadroAmarillo ];    //cambiar a ILUMINARJUGADA
 
-let secuenciaJugador =[];
+//let secuenciaJugador =[];
 
 //let jugadaMaquina = [];
 
-let turnoMaquina = true;
+//let turnoMaquina = true;
 
 
 $botonJugar.onclick = function(){
@@ -35,6 +35,7 @@ $botonJugar.onclick = function(){
     let jugadaMaquina = [];
 
     let nivel = 0;
+    
 
 
    for( let i=0 ; i < 5 ; i++){ // numero de ROUNDS para ganar
@@ -49,7 +50,7 @@ $botonJugar.onclick = function(){
   
    nivel++;
 
-
+   console.log(nivel);
 
 
 
@@ -180,21 +181,25 @@ function iluminarJugadaMaquina(jugadaMaquina, cuadrosDisponibles , nivel){
    /// for (let i = 0 ; i< $jugadaMaquina.length ; i++){
         if ($jugadaMaquina[$nivel] ===  $cuadrosDisponibles[0]){
     
-           setTimeout(encenderCuadroRojo, 1000);
+           //setTimeout(encenderCuadroRojo, 1000);
+           encenderCuadroRojo();
        }
     
        if ($jugadaMaquina[$nivel] ===  $cuadrosDisponibles[1]){
     
-           setTimeout(encenderCuadroAzul, 2000);
+           //setTimeout(encenderCuadroAzul, 2000);
+           encenderCuadroAzul();
         }
     
         if ($jugadaMaquina[$nivel] === $cuadrosDisponibles[2]){
     
-           setTimeout(encenderCuadroVerde, 3000);
+          // setTimeout(encenderCuadroVerde, 3000);
+           encenderCuadroVerde();
         }
         if ($jugadaMaquina[$nivel] === $cuadrosDisponibles[3]){
     
-        setTimeout(encenderCuadroAmarillo,4000);
+            //setTimeout(encenderCuadroAmarillo,4000);
+            encenderCuadroAmarillo();
         }
     
       //  }
