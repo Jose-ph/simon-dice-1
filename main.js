@@ -17,7 +17,7 @@ const $cuadroAmarillo = document.querySelector('#amarillo');
 
 // variables para jugar
 
-let secuenciaMaquina =[$cuadroRojo , $cuadroAzul , $cuadroVerde,$cuadroAmarillo ];    //cambiar a ILUMINARJUGADA
+//let secuenciaMaquina =[$cuadroRojo , $cuadroAzul , $cuadroVerde,$cuadroAmarillo ];    //cambiar a ILUMINARJUGADA
 
 let secuenciaJugador =[];
 
@@ -34,10 +34,8 @@ $botonJugar.onclick = function(){
 
     let jugadaMaquina = [];
 
-    
-    
-    
-    
+    let nivel = 0;
+
 
    for( let i=0 ; i < 5 ; i++){ // numero de ROUNDS para ganar
     
@@ -47,9 +45,13 @@ $botonJugar.onclick = function(){
    }
    console.log(jugadaMaquina);
 
-   iluminarJugadaMaquina(jugadaMaquina, secuenciaMaquina);
+   iluminarJugadaMaquina(jugadaMaquina, cuadrosDisponibles, nivel);
   
-   
+   nivel++;
+
+
+
+
 
 } 
    
@@ -166,32 +168,36 @@ function apagarCuadroAmarillo (evento){
 }
 
 
-function iluminarJugadaMaquina(jugadaMaquina, secuenciaMaquina){
+function iluminarJugadaMaquina(jugadaMaquina, cuadrosDisponibles , nivel){
 
     let $jugadaMaquina = jugadaMaquina;
-    let $secuenciaMaquina = secuenciaMaquina;
+    let $cuadrosDisponibles = cuadrosDisponibles;
 
-    for (let i = 0 ; i< $jugadaMaquina.length ; i++){
-        if ($jugadaMaquina[i] ===  $secuenciaMaquina[0]){
+    let $nivel=nivel;
+
+    
+
+   /// for (let i = 0 ; i< $jugadaMaquina.length ; i++){
+        if ($jugadaMaquina[$nivel] ===  $cuadrosDisponibles[0]){
     
            setTimeout(encenderCuadroRojo, 1000);
        }
     
-       if ($jugadaMaquina[i] ===  $secuenciaMaquina[1]){
+       if ($jugadaMaquina[$nivel] ===  $cuadrosDisponibles[1]){
     
            setTimeout(encenderCuadroAzul, 2000);
         }
     
-        if ($jugadaMaquina[i] === $secuenciaMaquina[2]){
+        if ($jugadaMaquina[$nivel] === $cuadrosDisponibles[2]){
     
            setTimeout(encenderCuadroVerde, 3000);
         }
-        if ($jugadaMaquina[i] === $secuenciaMaquina[3]){
+        if ($jugadaMaquina[$nivel] === $cuadrosDisponibles[3]){
     
         setTimeout(encenderCuadroAmarillo,4000);
         }
     
-        }
+      //  }
 
 
 
