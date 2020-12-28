@@ -46,11 +46,11 @@ $botonJugar.onclick = function(){
    }
    console.log(jugadaMaquina);
 
-   iluminarJugadaMaquina(jugadaMaquina, cuadrosDisponibles, nivel);
+   iluminarJugadaMaquina(jugadaMaquina); 
   
-   nivel++;
+   //nivel++;
 
-   console.log(nivel);
+   console.log('Estamos en el nivel ' + nivel);
 
 
 
@@ -169,42 +169,49 @@ function apagarCuadroAmarillo (evento){
 }
 
 
-function iluminarJugadaMaquina(jugadaMaquina, cuadrosDisponibles , nivel){
+function iluminarJugadaMaquina(jugadaMaquina){
 
     let $jugadaMaquina = jugadaMaquina;
-    let $cuadrosDisponibles = cuadrosDisponibles;
-
-    let $nivel=nivel;
+   
 
     
+    
+    
 
-   /// for (let i = 0 ; i< $jugadaMaquina.length ; i++){
+    for ( $nivel ; $nivel < $jugadaMaquina.length ; $nivel++){
         if ($jugadaMaquina[$nivel] ===  $cuadrosDisponibles[0]){
     
-           //setTimeout(encenderCuadroRojo, 1000);
+          
            encenderCuadroRojo();
+
+           
        }
     
        if ($jugadaMaquina[$nivel] ===  $cuadrosDisponibles[1]){
     
-           //setTimeout(encenderCuadroAzul, 2000);
+           
            encenderCuadroAzul();
+           
         }
     
         if ($jugadaMaquina[$nivel] === $cuadrosDisponibles[2]){
     
-          // setTimeout(encenderCuadroVerde, 3000);
+          
            encenderCuadroVerde();
+           
         }
         if ($jugadaMaquina[$nivel] === $cuadrosDisponibles[3]){
     
-            //setTimeout(encenderCuadroAmarillo,4000);
+            
             encenderCuadroAmarillo();
+
+            
         }
     
-      //  }
+       }
 
 
+        
 
 
 }
