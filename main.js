@@ -21,7 +21,7 @@ let secuenciaMaquina =[$cuadroRojo , $cuadroAzul , $cuadroVerde,$cuadroAmarillo 
 
 let secuenciaJugador =[];
 
-let jugadaMaquina = [];
+//let jugadaMaquina = [];
 
 let turnoMaquina = true;
 
@@ -47,7 +47,7 @@ $botonJugar.onclick = function(){
    }
    console.log(jugadaMaquina);
 
-   iluminarJugadaMaquina();
+   iluminarJugadaMaquina(jugadaMaquina, secuenciaMaquina);
   
    
 
@@ -78,7 +78,7 @@ function obtenerCuadroAleatorio(){
 
     let cuadros = document.querySelectorAll('.cuadro');
     let cuadroElegido ;
-   let indiceAleatorio = Math.round(Math.random() *cuadros.length-1) // esto pone el rango para que salga el índice
+   let indiceAleatorio = Math.round(Math.random() *3) // esto pone el rango para que salga el índice
 
 
 
@@ -166,29 +166,29 @@ function apagarCuadroAmarillo (evento){
 }
 
 
-function iluminarJugadaMaquina(jugadaMaquina){
+function iluminarJugadaMaquina(jugadaMaquina, secuenciaMaquina){
 
     let $jugadaMaquina = jugadaMaquina;
-
+    let $secuenciaMaquina = secuenciaMaquina;
 
     for (let i = 0 ; i< $jugadaMaquina.length ; i++){
-        if (jugadaMaquina[i] ===  secuenciaMaquina[0]){
+        if ($jugadaMaquina[i] ===  $secuenciaMaquina[0]){
     
-           setTimeout(encenderCuadroRojo(), 800);
+           setTimeout(encenderCuadroRojo, 1000);
        }
     
-       if ($jugadaMaquina[i] ===  secuenciaMaquina[1]){
+       if ($jugadaMaquina[i] ===  $secuenciaMaquina[1]){
     
-           setTimeout(encenderCuadroAzul(), 800);
+           setTimeout(encenderCuadroAzul, 2000);
         }
     
-        if ($jugadaMaquina[i] === secuenciaMaquina[2]){
+        if ($jugadaMaquina[i] === $secuenciaMaquina[2]){
     
-           setTimeout(encenderCuadroVerde(), 800);
+           setTimeout(encenderCuadroVerde, 3000);
         }
-        if ($jugadaMaquina[i] === secuenciaMaquina[3]){
+        if ($jugadaMaquina[i] === $secuenciaMaquina[3]){
     
-        setTimeout(encenderCuadroAmarillo(), 800);
+        setTimeout(encenderCuadroAmarillo,4000);
         }
     
         }
