@@ -17,9 +17,89 @@ const $cuadroAmarillo = document.querySelector('#amarillo');
 
 // variables para jugar
 
-let secuenciaMaquina =[];
+let secuenciaMaquina =[$cuadroRojo , $cuadroAzul , $cuadroVerde,$cuadroAmarillo ];    //cambiar a ILUMINARJUGADA
 
 let secuenciaJugador =[];
+
+let jugadaMaquina = [];
+
+let turnoMaquina = true;
+
+
+$botonJugar.onclick = function(){
+
+    let turnoMaquina = true;
+
+    let cuadrosDisponibles =[$cuadroRojo , $cuadroAzul , $cuadroVerde,$cuadroAmarillo ];
+
+    let jugadaMaquina = [];
+
+    
+    
+    
+    
+
+   for( i=0 ; i < 5 ; i++){ // numero de ROUNDS para ganar
+    
+    
+     jugadaMaquina.push(obtenerCuadroAleatorio());
+
+    
+    
+
+    
+    
+    
+    
+   }
+   console.log(jugadaMaquina);
+  
+  
+   /*
+    if (jugadaMaquina[i] ===  secuenciaMaquina[0]){
+
+        encenderCuadroRojo();
+   }
+
+   if (jugadaMaquina[i] ===  secuenciaMaquina[1]){
+
+    encenderCuadroAzul();
+    }
+
+    if (jugadaMaquina[i] === secuenciaMaquina[2]){
+
+    encenderCuadroVerde();
+    }
+    if (jugadaMaquina[i] === secuenciaMaquina[3]){
+
+    encenderCuadroAmarillo();
+    }
+
+    */
+   
+
+   
+
+} 
+   
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
