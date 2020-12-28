@@ -43,41 +43,12 @@ $botonJugar.onclick = function(){
     
     
      jugadaMaquina.push(obtenerCuadroAleatorio());
-
-    
-    
-
-    
-    
-    
-    
+      
    }
    console.log(jugadaMaquina);
+
+   iluminarJugadaMaquina();
   
-  
-   for (let i = 0 ; i< jugadaMaquina.length ; i++){
-    if (jugadaMaquina[i] ===  secuenciaMaquina[0]){
-
-        encenderCuadroRojo();
-   }
-
-   if (jugadaMaquina[i] ===  secuenciaMaquina[1]){
-
-    encenderCuadroAzul();
-    }
-
-    if (jugadaMaquina[i] === secuenciaMaquina[2]){
-
-    encenderCuadroVerde();
-    }
-    if (jugadaMaquina[i] === secuenciaMaquina[3]){
-
-    encenderCuadroAmarillo();
-    }
-
-    }
-   
-
    
 
 } 
@@ -195,7 +166,37 @@ function apagarCuadroAmarillo (evento){
 }
 
 
+function iluminarJugadaMaquina(jugadaMaquina){
 
+    let $jugadaMaquina = jugadaMaquina;
+
+
+    for (let i = 0 ; i< $jugadaMaquina.length ; i++){
+        if (jugadaMaquina[i] ===  secuenciaMaquina[0]){
+    
+           setTimeout(encenderCuadroRojo(), 800);
+       }
+    
+       if ($jugadaMaquina[i] ===  secuenciaMaquina[1]){
+    
+           setTimeout(encenderCuadroAzul(), 800);
+        }
+    
+        if ($jugadaMaquina[i] === secuenciaMaquina[2]){
+    
+           setTimeout(encenderCuadroVerde(), 800);
+        }
+        if ($jugadaMaquina[i] === secuenciaMaquina[3]){
+    
+        setTimeout(encenderCuadroAmarillo(), 800);
+        }
+    
+        }
+
+
+
+
+}
 
     
 
