@@ -36,19 +36,15 @@ $botonJugar.onclick = function(){
 
     let nivel = 0;
     
+    crearJugadaMaquina(jugadaMaquina);
 
 
-   for( let i=0 ; i < 5 ; i++){ // numero de ROUNDS para ganar
-    
-    
-     jugadaMaquina.push(obtenerCuadroAleatorio());
-      
-   }
+  
    console.log(jugadaMaquina);
 
-   iluminarJugadaMaquina(jugadaMaquina); 
+   iluminarJugadaMaquina(jugadaMaquina , cuadrosDisponibles); 
   
-   //nivel++;
+   
 
    console.log('Estamos en el nivel ' + nivel);
 
@@ -60,7 +56,20 @@ $botonJugar.onclick = function(){
 
 
 
+function crearJugadaMaquina(jugadaMaquina){
 
+    let $jugadaMaquina = jugadaMaquina;
+
+    for( let i=0 ; i < 5 ; i++){ // numero de ROUNDS para ganar
+    
+    
+        $jugadaMaquina.push(obtenerCuadroAleatorio());
+         
+      }
+
+      return $jugadaMaquina;
+
+}
 
 
 
@@ -169,38 +178,37 @@ function apagarCuadroAmarillo (evento){
 }
 
 
-function iluminarJugadaMaquina(jugadaMaquina){
+function iluminarJugadaMaquina(jugadaMaquina,cuadrosDisponibles){
 
     let $jugadaMaquina = jugadaMaquina;
-   
+    let $cuadrosDisponibles = cuadrosDisponibles;
 
     
     
     
-
-    for ( $nivel ; $nivel < $jugadaMaquina.length ; $nivel++){
-        if ($jugadaMaquina[$nivel] ===  $cuadrosDisponibles[0]){
     
-          
+
+    for ( let i = 0 ; i < $jugadaMaquina.length ; i++){
+        if ($jugadaMaquina[i] ===  $cuadrosDisponibles[0]){
+    
+           
            encenderCuadroRojo();
 
-           
+          
        }
     
-       if ($jugadaMaquina[$nivel] ===  $cuadrosDisponibles[1]){
+       if ($jugadaMaquina[i] ===  $cuadrosDisponibles[1]){
     
-           
            encenderCuadroAzul();
-           
-        }
-    
-        if ($jugadaMaquina[$nivel] === $cuadrosDisponibles[2]){
-    
           
-           encenderCuadroVerde();
-           
         }
-        if ($jugadaMaquina[$nivel] === $cuadrosDisponibles[3]){
+    
+        if ($jugadaMaquina[i] === $cuadrosDisponibles[2]){
+    
+           encenderCuadroVerde();
+          
+        }
+        if ($jugadaMaquina[i] === $cuadrosDisponibles[3]){
     
             
             encenderCuadroAmarillo();
