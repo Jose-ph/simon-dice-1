@@ -28,30 +28,7 @@ const $cuadroAmarillo = document.querySelector('#amarillo');
 
 $botonJugar.onclick = function(){
 
-    let turnoMaquina = true;
-
-    let cuadrosDisponibles =[$cuadroRojo , $cuadroAzul , $cuadroVerde,$cuadroAmarillo ];
-
-    let jugadaMaquina = [];
-
-    let nivel = 0;
     
-    crearJugadaMaquina(jugadaMaquina);
-
-    console.log(jugadaMaquina);
-
-    while(turnoMaquina === true){
-
-        iluminarJugadaMaquina(jugadaMaquina , cuadrosDisponibles); 
-  
-        turnoMaquina === false;
-    }
-
-  
-   
-
-   console.log('Estamos en el nivel ' + nivel);
-
 
 
 } 
@@ -182,51 +159,13 @@ function apagarCuadroAmarillo (evento){
 }
 
 
-function iluminarJugadaMaquina(jugadaMaquina,cuadrosDisponibles){
 
-    let $jugadaMaquina = jugadaMaquina;
-    let $cuadrosDisponibles = cuadrosDisponibles;
-
-    
-    
-    
-    
-
-    for ( let i = 0 ; i < $jugadaMaquina.length ; i++){
-        if ($jugadaMaquina[i] ===  $cuadrosDisponibles[0]){
-    
-           
-           encenderCuadroRojo();
-
-          
-       }
-    
-       if ($jugadaMaquina[i] ===  $cuadrosDisponibles[1]){
-    
-           encenderCuadroAzul();
-          
-        }
-    
-        if ($jugadaMaquina[i] === $cuadrosDisponibles[2]){
-    
-           encenderCuadroVerde();
-          
-        }
-        if ($jugadaMaquina[i] === $cuadrosDisponibles[3]){
-    
-            
-            encenderCuadroAmarillo();
-
-            
-        }
-    
-       }
 
 
         
 
 
-}
+
 
     
 
