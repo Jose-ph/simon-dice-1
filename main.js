@@ -39,7 +39,7 @@ $botonJugar.onclick = function(){
     
     
 
-   for( i=0 ; i < 5 ; i++){ // numero de ROUNDS para ganar
+   for( let i=0 ; i < 5 ; i++){ // numero de ROUNDS para ganar
     
     
      jugadaMaquina.push(obtenerCuadroAleatorio());
@@ -55,7 +55,7 @@ $botonJugar.onclick = function(){
    console.log(jugadaMaquina);
   
   
-   /*
+   for (let i = 0 ; i< jugadaMaquina.length ; i++){
     if (jugadaMaquina[i] ===  secuenciaMaquina[0]){
 
         encenderCuadroRojo();
@@ -75,7 +75,7 @@ $botonJugar.onclick = function(){
     encenderCuadroAmarillo();
     }
 
-    */
+    }
    
 
    
@@ -107,16 +107,16 @@ function obtenerCuadroAleatorio(){
 
     let cuadros = document.querySelectorAll('.cuadro');
     let cuadroElegido ;
-   let indiceAleatorio = Math.round(Math.random() * 3) // esto pone el rango para que salga el índice
+   let indiceAleatorio = Math.round(Math.random() *cuadros.length-1) // esto pone el rango para que salga el índice
 
 
-   for(i=0 ; i< cuadros.length ; i++){
+
 
         cuadroElegido = cuadros[indiceAleatorio];
 
 
    
-     }
+     
 
      return cuadroElegido;
 }
