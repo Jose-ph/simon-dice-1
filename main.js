@@ -21,7 +21,7 @@ $estado.innerText = "Toca START para empezar el juego";
 
 $botonStart.onclick = function (){
 
-    let nivel =2;
+    let nivel =1;
 
     let jugadaMaquina =[];
     
