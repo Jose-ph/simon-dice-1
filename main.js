@@ -47,11 +47,15 @@ $botonStart.onclick = function (){
 
         console.log(jugadaMaquina);
 
+        let retrasoIluminacionJugadaMaquina= ($jugada.length + 1) * 1000 ;
+
+        let retrasoIluminacionJugadaUsuario;
+
          setTimeout(function(){
              manejarIluminacionCuadros(jugadaMaquina);
 
             
-         }, 1000)// aca se prenden y apagan los cuadros con un error se prenden y apagan al mismo tiempo
+         }, retrasoIluminacionJugadaMaquina);// aca se prenden y apagan los cuadros con un error se prenden y apagan al mismo tiempo
 
 
        
@@ -85,7 +89,9 @@ $botonStart.onclick = function (){
 
         let $jugada = jugada;
 
-       /*  $jugada.forEach(cuadro => { //enciende los cuadros y apaga
+        
+
+        $jugada.forEach(cuadro => { //enciende y apaga los cuadros
            
             if (cuadro === $cuadroRojo){
 
@@ -132,72 +138,14 @@ $botonStart.onclick = function (){
 
                 },800);
             }
-      
-        });*/
-
-        $jugada.forEach(cuadro => { // para q se prendan de a uno
-
-            setTimeout (function(){
-
-                $jugada.forEach(cuadro => { //enciende los cuadros y apaga
-           
-                    if (cuadro === $cuadroRojo){
-        
-                        $cuadroRojo.style.background = "#fc8787";
-        
-                        setTimeout (function(){
-        
-                            $cuadroRojo.style.background = "red";
-        
-                        },800);
-                    }
             
-                    if(cuadro === $cuadroAzul){
+
             
-                        $cuadroAzul.style.background = " #717dfa ";
-                        setTimeout (function(){
-        
-                            $cuadroAzul.style.background = "blue";
-        
-                        },800);
-        
-        
-                    }
-                    
-                    if( cuadro === $cuadroVerde){
-            
-            
-                        $cuadroVerde.style.background = " #62f64e ";
-        
-                        setTimeout (function(){
-        
-                            $cuadroVerde.style.background = "green";
-        
-                        },800);
-                    }
-            
-                    if(cuadro === $cuadroAmarillo){
-            
-                        $cuadroAmarillo.style.background = "#fafa8e ";
-        
-                        setTimeout (function(){
-        
-                            $cuadroAmarillo.style.background = "yellow";
-        
-                        },800);
-                    }
-              
-                });
 
 
-
-
-
-
-
-            },1000);
             
         });
 
+        
 
     }
