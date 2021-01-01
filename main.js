@@ -43,11 +43,13 @@ $botonStart.onclick = function (){
         
         //iniciar jugada de la máquina
 
-        agregarCuadroAleatorio(jugadaMaquina);
+       // agregarCuadroAleatorio(jugadaMaquina);
+
+       jugadaMaquina =[$cuadroAmarillo,$cuadroRojo,$cuadroAzul];
 
         console.log(jugadaMaquina);
 
-        let retrasoIluminacionJugadaMaquina= ($jugada.length + 1) * 1000 ;
+        let retrasoIluminacionJugadaMaquina= (jugadaMaquina.length + 1) * 1000 ;
 
         let retrasoIluminacionJugadaUsuario;
 
@@ -89,9 +91,21 @@ $botonStart.onclick = function (){
 
         let $jugada = jugada;
 
-        
+        jugada.forEach(cuadro => {
 
-        $jugada.forEach(cuadro => { //enciende y apaga los cuadros
+            cuadro.style.transform = "scale(1.1)"
+
+            setTimeout(function(){
+
+                cuadro.style.transform = "scale(1)"
+
+            },800);
+            
+        });
+
+       
+
+        /*$jugada.forEach(cuadro => { //enciende y apaga los cuadros
            
             if (cuadro === $cuadroRojo){
 
@@ -138,13 +152,13 @@ $botonStart.onclick = function (){
 
                 },800);
             }
-            
+            */
 
             
 
 
             
-        });
+        
 
         
 
