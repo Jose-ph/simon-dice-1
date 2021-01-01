@@ -53,8 +53,11 @@ $botonStart.onclick = function (){
 
         let retrasoIluminacionJugadaUsuario;
 
+        
+            
+
          setTimeout(function(){
-             manejarIluminacionCuadros(jugadaMaquina);
+            manejarIluminacionCuadros(jugadaMaquina);
 
             
          }, retrasoIluminacionJugadaMaquina);// aca se prenden y apagan los cuadros con un error se prenden y apagan al mismo tiempo
@@ -89,24 +92,14 @@ $botonStart.onclick = function (){
 
     function manejarIluminacionCuadros(jugada){ //toma la del usuario o la de la maquina
 
+        
         let $jugada = jugada;
 
-        jugada.forEach(cuadro => {
+          $jugada.forEach(cuadro => {
 
-            cuadro.style.transform = "scale(1.1)"
 
-            setTimeout(function(){
 
-                cuadro.style.transform = "scale(1)"
 
-            },800);
-            
-        });
-
-       
-
-        /*$jugada.forEach(cuadro => { //enciende y apaga los cuadros
-           
             if (cuadro === $cuadroRojo){
 
                 $cuadroRojo.style.background = "#fc8787";
@@ -152,7 +145,11 @@ $botonStart.onclick = function (){
 
                 },800);
             }
-            */
+              
+          }); //enciende y apaga los cuadros
+           
+            
+            
 
             
 
@@ -162,4 +159,9 @@ $botonStart.onclick = function (){
 
         
 
-    }
+        
+        
+        
+    
+
+        }
