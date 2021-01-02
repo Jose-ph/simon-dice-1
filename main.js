@@ -38,29 +38,41 @@ $botonStart.onclick = function (){
 }
 
 
-    function jugar(jugadaMaquina , jugadaUsuario , indicadorSecuencia , nivel){
+    function jugar(){
         
         
         //iniciar jugada de la máquina
 
-       // agregarCuadroAleatorio(jugadaMaquina);
+      // agregarCuadroAleatorio(jugadaMaquina);
 
-       jugadaMaquina =[$cuadroAmarillo,$cuadroRojo,$cuadroAzul];
+       jugadaMaquina =[$cuadroAmarillo,$cuadroRojo,$cuadroAzul,$cuadroVerde,$cuadroRojo];
 
         console.log(jugadaMaquina);
 
-        let retrasoIluminacionJugadaMaquina= (jugadaMaquina.length + 1) * 1000 ;
+        let retrasoIluminacionJugadaMaquina= (indicadorSecuencia + 1) * 1000 ;
 
         let retrasoIluminacionJugadaUsuario;
 
+
+    jugadaMaquina.forEach(function(cuadro,indice){
+
+        let retraso = (indice+1)*1000;
+
+        setTimeout(function(){
+
+            manejarIluminacionCuadros(cuadro) ;
+
+
+
+        },retraso);
+
+       // indice++;
+        
+    });
         
             
 
-         setTimeout(function(){
-            manejarIluminacionCuadros(jugadaMaquina);
-
-            
-         }, retrasoIluminacionJugadaMaquina);// aca se prenden y apagan los cuadros con un error se prenden y apagan al mismo tiempo
+         // aca se prenden y apagan los cuadros con un error se prenden y apagan al mismo tiempo
 
 
        
@@ -90,12 +102,12 @@ $botonStart.onclick = function (){
 
     }
 
-    function manejarIluminacionCuadros(jugada){ //toma la del usuario o la de la maquina
+    function manejarIluminacionCuadros(cuadro){ //toma la del usuario o la de la maquina
 
         
-        let $jugada = jugada;
+        
 
-          $jugada.forEach(cuadro => {
+          
 
 
 
@@ -146,7 +158,7 @@ $botonStart.onclick = function (){
                 },800);
             }
               
-          }); //enciende y apaga los cuadros
+          //enciende y apaga los cuadros
            
             
             

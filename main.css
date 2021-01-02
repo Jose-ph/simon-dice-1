@@ -39,3 +39,10 @@
 
     background-color: pink;
 }
+
+
+#tablero {
+
+
+    transform: scale(0.85);
+}
