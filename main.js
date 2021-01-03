@@ -21,7 +21,7 @@ $estado.innerText = "Toca START para empezar el juego";
 
 $botonStart.onclick = function (){
 
-    let nivel =1;
+    let nivel = 1;
 
     let jugadaMaquina =[];
     
@@ -45,18 +45,19 @@ $botonStart.onclick = function (){
 
       // agregarCuadroAleatorio(jugadaMaquina);
 
-       jugadaMaquina =[$cuadroAmarillo,$cuadroRojo,$cuadroAzul,$cuadroVerde,$cuadroRojo];
+      jugadaMaquina =[$cuadroAmarillo,$cuadroRojo,$cuadroAzul,$cuadroVerde,$cuadroRojo];
 
+      //jugadaMaquina =[$cuadroRojo];
         console.log(jugadaMaquina);
 
-        let retrasoIluminacionJugadaMaquina= (indicadorSecuencia + 1) * 1000 ;
+        //let retrasoIluminacionJugadaMaquina= (indicadorSecuencia + 1) * 1000 ;
 
         let retrasoIluminacionJugadaUsuario;
 
 
     jugadaMaquina.forEach(function(cuadro,indice){
 
-        let retraso = (indice+1)*1000;
+        let retrasoMaquina = (indice+1)*1000;
 
         setTimeout(function(){
 
@@ -64,16 +65,15 @@ $botonStart.onclick = function (){
 
 
 
-        },retraso);
+        },retrasoMaquina);
 
-       // indice++;
+       
         
     });
         
             
 
-         // aca se prenden y apagan los cuadros con un error se prenden y apagan al mismo tiempo
-
+      
 
        
     }
@@ -105,20 +105,15 @@ $botonStart.onclick = function (){
     function manejarIluminacionCuadros(cuadro){ //toma la del usuario o la de la maquina
 
         
-        
-
-          
-
-
-
-
             if (cuadro === $cuadroRojo){
 
                 $cuadroRojo.style.background = "#fc8787";
+                $cuadroRojo.style.transform = "scale(1.1)";
 
                 setTimeout (function(){
 
                     $cuadroRojo.style.background = "red";
+                    $cuadroRojo.style.transform = "scale(1)";
 
                 },800);
             }
@@ -126,9 +121,11 @@ $botonStart.onclick = function (){
             if(cuadro === $cuadroAzul){
     
                 $cuadroAzul.style.background = " #717dfa ";
+                $cuadroAzul.style.transform = "scale(1.1)";
                 setTimeout (function(){
 
                     $cuadroAzul.style.background = "blue";
+                    $cuadroAzul.style.transform = "scale(1)";
 
                 },800);
 
@@ -139,10 +136,12 @@ $botonStart.onclick = function (){
     
     
                 $cuadroVerde.style.background = " #62f64e ";
+                $cuadroVerde.style.transform = "scale(1.1)";
 
                 setTimeout (function(){
 
                     $cuadroVerde.style.background = "green";
+                    $cuadroVerde.style.transform = "scale(1)";
 
                 },800);
             }
@@ -150,10 +149,12 @@ $botonStart.onclick = function (){
             if(cuadro === $cuadroAmarillo){
     
                 $cuadroAmarillo.style.background = "#fafa8e ";
+                $cuadroAmarillo.style.transform = "scale(1.1)";
 
                 setTimeout (function(){
 
                     $cuadroAmarillo.style.background = "yellow";
+                    $cuadroAmarillo.style.transform = "scale(1)";
 
                 },800);
             }
