@@ -21,7 +21,7 @@ $estado.innerText = "Toca START para empezar el juego";
 
 $botonStart.onclick = function (){
 
-    let nivel = 1;
+     nivel = 0;
 
     let jugadaMaquina =[];
     
@@ -71,7 +71,18 @@ $botonStart.onclick = function (){
         
     });
         
+        setTimeout ( function (){
 
+            $estado.innerText = "Ahora es tu turno !"
+
+
+        },retrasoJugador);
+
+        jugadaUsuario = [];
+
+        nivel++;
+
+        $estado.innerText = "Estas en el nivel " + nivel;
 
 
 
