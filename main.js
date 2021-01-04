@@ -84,21 +84,72 @@ $botonStart.onclick = function (){
 
         $estado.innerText = "Estas en el nivel " + nivel;
         
-        manejarCuadrosUsuario();
+         manejarCuadrosUsuario();
 
-        if (jugadaUsuario === jugadaMaquina){
+         setTimeout(function(){
 
-            console.log("acertaste la secuencia");
-        }
-            else console.log("todavia no hay secuencia");
+            revisarJugadas(jugadaMaquina, jugadaUsuario);
 
+
+
+         },(retrasoJugador+2000));
+
+         
+        
       
     }
 
 
+    function revisarJugadas(jugadaMaquina, jugadaUsuario){
+
+        let evaluacion;
+
+        let bien = "ACERTASTE";
+
+        let mal = "FALLASTE"
+
+        for (let i = 0 ; i<jugadaMaquina.length; i++){
+
+            
+
+            if(jugadaMaquina[i] === jugadaUsuario[i]){
+
+                evaluacion = bien;
+
+                
+
+
+            }
+
+            else {
+
+                evaluacion = mal;
+               
+            }
+
+
+        }
+
+        if(evaluacion === bien ){
+
+            setTimeout(jugar,2000);
+   
+            }
+   
+            else if(evaluacion === mal){
+   
+               $estado.innerText = "EROR PERDISTE";
+   
+   
+            }
+
+
+
+    }
+
     function manejarCuadrosUsuario(){
 
-
+        
         $cuadroRojo.onclick = function (){
 
             console.log("Tocaste ROJO");
@@ -126,7 +177,7 @@ $botonStart.onclick = function (){
         
        
         
-
+        
 
 
         
