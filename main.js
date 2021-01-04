@@ -137,8 +137,13 @@ $botonStart.onclick = function (){
             }
    
             else if(evaluacion === mal){
+
+                setTimeout(function(){
+
+                    $estado.innerText = "ERROR PERDISTE";
+                },2000);
    
-               $estado.innerText = "ERROR PERDISTE";
+               
    
    
             }
