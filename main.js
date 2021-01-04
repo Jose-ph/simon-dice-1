@@ -83,12 +83,56 @@ $botonStart.onclick = function (){
         nivel++;
 
         $estado.innerText = "Estas en el nivel " + nivel;
+        
+        manejarCuadrosUsuario();
 
+        if (jugadaUsuario === jugadaMaquina){
 
+            console.log("acertaste la secuencia");
+        }
+            else console.log("todavia no hay secuencia");
 
       
+    }
 
+
+    function manejarCuadrosUsuario(){
+
+
+        $cuadroRojo.onclick = function (){
+
+            console.log("Tocaste ROJO");
+            jugadaUsuario.push($cuadroRojo);
+        }
+
+        $cuadroAzul.onclick = function (){
+
+            console.log("Tocaste AZUL");
+            jugadaUsuario.push($cuadroAzul);
+        }
+
+        $cuadroAmarillo.onclick = function (){
+
+            console.log("Tocaste AMARILLO");
+            jugadaUsuario.push($cuadroAmarillo);
+        }
+
+        $cuadroVerde.onclick = function (){
+
+            console.log("Tocaste VERDE");
+            jugadaUsuario.push($cuadroVerde);
+        }
+
+        
        
+        
+
+
+
+        
+
+
+
     }
 
     function agregarCuadroAleatorio (jugadaMaquina){
