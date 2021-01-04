@@ -27,7 +27,7 @@ $botonStart.onclick = function (){
     
     let jugadaUsuario = []; 
     
-    let indicadorSecuencia;
+   // let indicadorSecuencia;
     
     $estado.innerText = "Estas en el nivel " + nivel;    
 
@@ -138,7 +138,7 @@ $botonStart.onclick = function (){
    
             else if(evaluacion === mal){
    
-               $estado.innerText = "EROR PERDISTE";
+               $estado.innerText = "ERROR PERDISTE";
    
    
             }
