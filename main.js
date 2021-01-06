@@ -30,8 +30,9 @@ $botonStart.onclick = function (){
    // let indicadorSecuencia;
     
     $estado.innerText = "Estas en el nivel " + nivel;    
-
+    bloquearCuadrosUsuario();
     jugar(jugadaMaquina);
+
 
 
     
@@ -44,6 +45,7 @@ $botonStart.onclick = function (){
         //iniciar jugada de la máquina
 
        agregarCuadroAleatorio(jugadaMaquina);
+       
 
       //jugadaMaquina =[$cuadroAmarillo,$cuadroRojo,$cuadroAzul,$cuadroVerde,$cuadroRojo];
 
@@ -86,16 +88,30 @@ $botonStart.onclick = function (){
         
          manejarCuadrosUsuario();
 
+         let retrasoRevision =  (jugadaUsuario.length + 2)*1000;
+        
          setTimeout(function(){
 
+            
             revisarJugadas(jugadaMaquina, jugadaUsuario);
 
+            
 
 
-         },(retrasoJugador+2000));
+
+         },(retrasoJugador + 2000)); /// jugadausuario.lenght(?)
 
          
-        
+        if( nivel === 6){
+
+
+            $estado.innerText = "Bien ! Ganaste ! Toca Start para empezar una nueva partida";
+
+            jugadaMaquina = [];
+            jugadaUsuario = [];
+            nivel= 0;
+            
+        }
       
     }
 
@@ -152,6 +168,36 @@ $botonStart.onclick = function (){
 
     }
 
+    function bloquearCuadrosUsuario(){
+
+        $cuadroRojo.onclick = function (){
+
+            console.log("No puedes jugar todavia ROJO");
+            //jugadaUsuario.push($cuadroRojo);
+        }
+
+        $cuadroAzul.onclick = function (){
+
+            console.log("No puedes jugar todavia AZUL");
+            //jugadaUsuario.push($cuadroAzul);
+        }
+
+        $cuadroAmarillo.onclick = function (){
+
+            console.log("No puedes jugar todavia AMARILLO");
+            //jugadaUsuario.push($cuadroAmarillo);
+        }
+
+        $cuadroVerde.onclick = function (){
+
+            console.log("No puedes jugar todavia VERDE");
+           // jugadaUsuario.push($cuadroVerde);
+        }
+
+        
+
+
+    }
     function manejarCuadrosUsuario(){
 
         
