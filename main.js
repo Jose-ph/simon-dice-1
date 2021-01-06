@@ -88,8 +88,7 @@ $botonStart.onclick = function (){
         
          manejarCuadrosUsuario();
 
-         let retrasoRevision =  (jugadaUsuario.length + 2)*1000;
-        
+         
          setTimeout(function(){
 
             
