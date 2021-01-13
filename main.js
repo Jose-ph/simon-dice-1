@@ -31,6 +31,7 @@ $botonStart.onclick = function (){
     
     $estado.innerText = "Estas en el nivel " + nivel;    
     bloquearCuadrosUsuario();
+
     jugar(jugadaMaquina);
 
 
@@ -50,6 +51,7 @@ $botonStart.onclick = function (){
       //jugadaMaquina =[$cuadroAmarillo,$cuadroRojo,$cuadroAzul,$cuadroVerde,$cuadroRojo];
 
       //jugadaMaquina =[$cuadroRojo];
+
         console.log(jugadaMaquina);
 
         //let retrasoIluminacionJugadaMaquina= (indicadorSecuencia + 1) * 1000 ;
@@ -57,19 +59,28 @@ $botonStart.onclick = function (){
         let retrasoJugador = (jugadaMaquina.length + 1) * 1000;
 
 
-    jugadaMaquina.forEach(function(cuadro,indice){
+        jugadaMaquina.forEach(function(cuadro,indice){
 
         let retrasoMaquina = (indice+1)*1000;
+        
+        
 
         setTimeout(function(){
 
+           
+            
             resaltarCuadros(cuadro) ;
+            
 
-
-
+              
+            
+            
+           
+            
+            
         },retrasoMaquina);
 
-       
+        
         
     });
         
@@ -77,40 +88,92 @@ $botonStart.onclick = function (){
 
             $estado.innerText = "Ahora es tu turno !"
 
+            
+            manejarCuadrosUsuario();
+
+            setTimeout(function(){
+
+                revisarJugadas(jugadaMaquina,jugadaUsuario);
+
+
+                if ( nivel === 3){
+    
+    
+                    
+                    
+                    
+                    $estado.innerText = "Bien ! Ganaste ! Toca Start para empezar una nueva partida";
+        
+                    jugadaMaquina = [];
+                    
+                    jugadaUsuario = [];
+        
+                    nivel= 0;
+                }
+
+
+            }
+            ,retrasoJugador);
+
+           
 
         },retrasoJugador);
 
+        
         jugadaUsuario = [];
 
         nivel++;
 
         $estado.innerText = "Estas en el nivel " + nivel;
-        
-         manejarCuadrosUsuario();
+
+            
+          //manejarCuadrosUsuario();
+            
+         
+         //setTimeout(function(){
+
+            
+            //revisarJugadas(jugadaMaquina, jugadaUsuario);
+
+            ///if ( nivel === 3){
+
+
+                
+                
+                //alert ("Terminó el juego");
+                //$estado.innerText = "Bien ! Ganaste ! Toca Start para empezar una nueva partida";
+    
+                //jugadaMaquina = [];
+                
+                //jugadaUsuario = [];
+    
+                //nivel= 0;
+                
+            
+    
+    
+    
+             //}
+
+
+
+         //},(retrasoJugador + 3000)); /// jugadausuario.lenght(?)
+
+
 
          
-         setTimeout(function(){
-
-            
-            revisarJugadas(jugadaMaquina, jugadaUsuario);
-
-            
-
-
-
-         },(retrasoJugador + 2000)); /// jugadausuario.lenght(?)
 
          
-        if( nivel === 6){
+        //if( nivel === 3){
 
 
-            $estado.innerText = "Bien ! Ganaste ! Toca Start para empezar una nueva partida";
+           // $estado.innerText = "Bien ! Ganaste ! Toca Start para empezar una nueva partida";
 
-            jugadaMaquina = [];
-            jugadaUsuario = [];
-            nivel= 0;
+            //jugadaMaquina = [];
+            //jugadaUsuario = [];
+            //nivel= 0;
             
-        }
+       // }
       
     }
 
@@ -145,33 +208,51 @@ $botonStart.onclick = function (){
 
         }
 
-        if(evaluacion === bien ){
+        
 
-            setTimeout(jugar,2000);
-   
-            }
-   
-            else if(evaluacion === mal){
 
-                setTimeout(function(){
+       
 
-                    $estado.innerText = "ERROR PERDISTE";
-                },2000);
-   
-               
-   
-   
-            }
+            if(evaluacion === bien ){
 
 
 
+                setTimeout(jugar,2000);
+       
+                }
+                
+                
+                else if(evaluacion === mal){
+    
+                    setTimeout(function(){
+    
+                        $estado.innerText = "ERROR PERDISTE";
+                    },2000);
+       
+                   
+       
+       
+                }
+
+
+        
+
+        
+        
+        
+
+
+            
     }
 
     function bloquearCuadrosUsuario(){
 
+
+        
+
         $cuadroRojo.onclick = function (){
 
-            console.log("No puedes jugar todavia ROJO");
+           console.log("No puedes jugar todavia ROJO");
             //jugadaUsuario.push($cuadroRojo);
         }
 
@@ -192,8 +273,8 @@ $botonStart.onclick = function (){
             console.log("No puedes jugar todavia VERDE");
            // jugadaUsuario.push($cuadroVerde);
         }
-
-        
+                    
+    
 
 
     }
@@ -336,3 +417,6 @@ $botonStart.onclick = function (){
     
 
         }
+
+    
+       
