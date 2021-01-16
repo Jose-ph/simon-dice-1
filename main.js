@@ -9,11 +9,11 @@ const $cuadroAmarillo = document.querySelector('#amarillo');
 
 let nivel;
 
-let jugadaMaquina = [];
+//let jugadaMaquina = [];
 
-let jugadaUsuario = []; 
+//let jugadaUsuario = []; 
 
-let indicadorSecuencia;
+//let indicadorSecuencia;
 
 $estado.innerText = "Toca START para empezar el juego";
 
@@ -29,8 +29,11 @@ $botonStart.onclick = function (){
     
    // let indicadorSecuencia;
     
-    $estado.innerText = "Estas en el nivel " + nivel;    
-    bloquearCuadrosUsuario();
+    $estado.innerText = "Estas en el nivel " + nivel; 
+    
+    
+   
+    
 
     jugar(jugadaMaquina);
 
@@ -44,7 +47,7 @@ $botonStart.onclick = function (){
         
         //borrar estados anteriores
         //iniciar jugada de la máquina
-
+        
        agregarCuadroAleatorio(jugadaMaquina);
        
 
@@ -93,24 +96,10 @@ $botonStart.onclick = function (){
 
             setTimeout(function(){
 
-                revisarJugadas(jugadaMaquina,jugadaUsuario);
+                revisarJugadas(jugadaMaquina,jugadaUsuario,nivel);
 
 
-                if ( nivel === 3){
-    
-    
-                    
-                    
-                    
-                    $estado.innerText = "Bien ! Ganaste ! Toca Start para empezar una nueva partida";
-        
-                    jugadaMaquina = [];
-                    
-                    jugadaUsuario = [];
-        
-                    nivel= 0;
-                }
-
+               
 
             }
             ,retrasoJugador);
@@ -178,7 +167,12 @@ $botonStart.onclick = function (){
     }
 
 
-    function revisarJugadas(jugadaMaquina, jugadaUsuario){
+    function revisarJugadas(jugadaMaquina, jugadaUsuario, nivel){
+
+      
+
+
+
 
         let evaluacion;
 
@@ -209,41 +203,41 @@ $botonStart.onclick = function (){
         }
 
         
+        if(evaluacion === bien ){
 
-
-       
-
-            if(evaluacion === bien ){
-
-
-
-                setTimeout(jugar,2000);
-       
-                }
                 
+
+            setTimeout(jugar,2000);
+    
+             }
+             
+             
+             else if(evaluacion === mal){
+ 
+                 setTimeout(function(){
+ 
+                     //$estado.innerText = "ERROR PERDISTE";
+                },2000);
+    
                 
-                else if(evaluacion === mal){
     
-                    setTimeout(function(){
     
-                        $estado.innerText = "ERROR PERDISTE";
-                    },2000);
+            }
+ 
+          
+    }
        
-                   
-       
-       
-                }
 
+           
 
-        
-
+               
         
         
         
 
 
             
-    }
+    
 
     function bloquearCuadrosUsuario(){
 
@@ -419,4 +413,3 @@ $botonStart.onclick = function (){
         }
 
     
-       
