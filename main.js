@@ -9,9 +9,9 @@ const $cuadroAmarillo = document.querySelector('#amarillo');
 
 let nivel;
 
-//let jugadaMaquina = [];
+let jugadaMaquina = [];
 
-//let jugadaUsuario = []; 
+let jugadaUsuario = []; 
 
 //let indicadorSecuencia;
 
@@ -23,13 +23,13 @@ $botonStart.onclick = function (){
 
      nivel = 0;
 
-    let jugadaMaquina =[];
+    //let jugadaMaquina =[];
     
-    let jugadaUsuario = []; 
+    //let jugadaUsuario = []; 
     
    // let indicadorSecuencia;
     
-    $estado.innerText = "Estas en el nivel " + nivel; 
+    $estado.innerText = "Juega la Máquina; Nivel: "  + nivel; 
     
     
    
@@ -172,7 +172,7 @@ $botonStart.onclick = function (){
       
 
 
-
+        let retrasoJugador = (jugadaUsuario.length + 1) * 1000;
 
         let evaluacion;
 
@@ -216,8 +216,8 @@ $botonStart.onclick = function (){
  
                  setTimeout(function(){
  
-                     //$estado.innerText = "ERROR PERDISTE";
-                },2000);
+                     $estado.innerText = "ERROR PERDISTE";
+                }, 2000);
     
                 
     
