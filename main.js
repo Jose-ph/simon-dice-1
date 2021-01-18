@@ -1,10 +1,19 @@
+
+
 const $tablero= document.querySelector('#tablero');
+
 let $estado = document.querySelector('#estado');
+
 const $botonStart= document.querySelector('#boton-start');
+
 let $cuadros = document.querySelectorAll(".cuadro");
+
 const $cuadroRojo = document.querySelector('#rojo');
+
 const $cuadroAzul= document.querySelector('#azul');
+
 const $cuadroVerde = document.querySelector('#verde');
+
 const $cuadroAmarillo = document.querySelector('#amarillo');
 
 let nivel;
@@ -13,56 +22,58 @@ let jugadaMaquina = [];
 
 let jugadaUsuario = []; 
 
-//let indicadorSecuencia;
+
+
+bloquearCuadrosUsuario();
+
 
 $estado.innerText = "Toca START para empezar el juego";
 
 
 
 $botonStart.onclick = function (){
+    
+    bloquearCuadrosUsuario();
+    
+    reiniciar();
 
-     nivel = 0;
+   
 
-    //let jugadaMaquina =[];
     
-    //let jugadaUsuario = []; 
-    
-   // let indicadorSecuencia;
-    
-    $estado.innerText = "Juega la Máquina; Nivel: "  + nivel; 
-    
+    $estado.innerText = "Turno de la Máquina. Estás en el nivel " + nivel;
     
    
     
 
     jugar(jugadaMaquina);
 
-
-
+    bloquearStart();
+    
     
 }
 
 
+   
+
     function jugar(){
+
+       // if (nivel === 3){
+
+         //   alert('GANASTE. Toca Start para empezar de nuevo');
+           // reiniciar();
+       // }
         
-        //borrar estados anteriores
-        //iniciar jugada de la máquina
+        
+     $estado.innerText = "Turno de la Máquina. Estás en el nivel " + nivel;
         
        agregarCuadroAleatorio(jugadaMaquina);
        
-
-      //jugadaMaquina =[$cuadroAmarillo,$cuadroRojo,$cuadroAzul,$cuadroVerde,$cuadroRojo];
-
-      //jugadaMaquina =[$cuadroRojo];
-
-        console.log(jugadaMaquina);
-
-        //let retrasoIluminacionJugadaMaquina= (indicadorSecuencia + 1) * 1000 ;
-
+       console.log(jugadaMaquina);
+ 
         let retrasoJugador = (jugadaMaquina.length + 1) * 1000;
 
 
-        jugadaMaquina.forEach(function(cuadro,indice){
+        jugadaMaquina.forEach(function(cuadro,indice){ //indice del array
 
         let retrasoMaquina = (indice+1)*1000;
         
@@ -92,9 +103,13 @@ $botonStart.onclick = function (){
             $estado.innerText = "Ahora es tu turno !"
 
             
-            manejarCuadrosUsuario();
+            manejarCuadrosUsuario();//También desbloquea los cuadros
+
+            
 
             setTimeout(function(){
+
+                bloquearCuadrosUsuario();
 
                 revisarJugadas(jugadaMaquina,jugadaUsuario,nivel);
 
@@ -108,61 +123,16 @@ $botonStart.onclick = function (){
 
         },retrasoJugador);
 
-        
+       
+
         jugadaUsuario = [];
 
         nivel++;
 
-        $estado.innerText = "Estas en el nivel " + nivel;
-
+       
+       
             
-          //manejarCuadrosUsuario();
-            
-         
-         //setTimeout(function(){
-
-            
-            //revisarJugadas(jugadaMaquina, jugadaUsuario);
-
-            ///if ( nivel === 3){
-
-
-                
-                
-                //alert ("Terminó el juego");
-                //$estado.innerText = "Bien ! Ganaste ! Toca Start para empezar una nueva partida";
-    
-                //jugadaMaquina = [];
-                
-                //jugadaUsuario = [];
-    
-                //nivel= 0;
-                
-            
-    
-    
-    
-             //}
-
-
-
-         //},(retrasoJugador + 3000)); /// jugadausuario.lenght(?)
-
-
-
-         
-
-         
-        //if( nivel === 3){
-
-
-           // $estado.innerText = "Bien ! Ganaste ! Toca Start para empezar una nueva partida";
-
-            //jugadaMaquina = [];
-            //jugadaUsuario = [];
-            //nivel= 0;
-            
-       // }
+          
       
     }
 
@@ -170,10 +140,6 @@ $botonStart.onclick = function (){
     function revisarJugadas(jugadaMaquina, jugadaUsuario, nivel){
 
       
-
-
-        let retrasoJugador = (jugadaUsuario.length + 1) * 1000;
-
         let evaluacion;
 
         let bien = "ACERTASTE";
@@ -188,9 +154,6 @@ $botonStart.onclick = function (){
 
                 evaluacion = bien;
 
-                
-
-
             }
 
             else {
@@ -201,22 +164,37 @@ $botonStart.onclick = function (){
 
 
         }
+        if (evaluacion === bien && nivel === 3){
 
+            console.log("GANASTE");
+            alert("SIMON DICE: GANASTE !!!")
+            $estado.innerText = "Simón dice: GANASTE !!!. Toca START para empezar una nueva partida.";
+            desbloquearStart();
+        }
         
-        if(evaluacion === bien ){
+        if(evaluacion === bien && nivel !=3 ){
+             
 
+                
                 
 
             setTimeout(jugar,2000);
+
+           
     
-             }
+             } 
+             
              
              
              else if(evaluacion === mal){
  
                  setTimeout(function(){
- 
-                     $estado.innerText = "ERROR PERDISTE";
+      
+
+                 bloquearCuadrosUsuario();
+                 $estado.innerText = "Perdiste!! Toca Start para empezar de nuevo."
+                 desbloquearStart();
+                     
                 }, 2000);
     
                 
@@ -226,18 +204,7 @@ $botonStart.onclick = function (){
  
           
     }
-       
-
-           
-
-               
-        
-        
-        
-
-
-            
-    
+         
 
     function bloquearCuadrosUsuario(){
 
@@ -278,24 +245,28 @@ $botonStart.onclick = function (){
         $cuadroRojo.onclick = function (){
 
             console.log("Tocaste ROJO");
+            resaltarCuadrosUsuario($cuadroRojo);
             jugadaUsuario.push($cuadroRojo);
         }
 
         $cuadroAzul.onclick = function (){
 
             console.log("Tocaste AZUL");
+            resaltarCuadrosUsuario($cuadroAzul);
             jugadaUsuario.push($cuadroAzul);
         }
 
         $cuadroAmarillo.onclick = function (){
 
             console.log("Tocaste AMARILLO");
+            resaltarCuadrosUsuario($cuadroAmarillo);
             jugadaUsuario.push($cuadroAmarillo);
         }
 
         $cuadroVerde.onclick = function (){
 
             console.log("Tocaste VERDE");
+            resaltarCuadros($cuadroVerde);
             jugadaUsuario.push($cuadroVerde);
         }
 
@@ -335,7 +306,7 @@ $botonStart.onclick = function (){
 
     }
 
-    function resaltarCuadros(cuadro){ //toma la del usuario o la de la maquina
+    function resaltarCuadros(cuadro){ //toma la de la maquina
 
         
             if (cuadro === $cuadroRojo){
@@ -393,23 +364,119 @@ $botonStart.onclick = function (){
             }
               
           //enciende y apaga los cuadros
-           
-            
-            
-
-            
-
-
-            
-        
-
-        
-
-        
-        
-        
-    
 
         }
 
+    function reiniciar(){
+
+
+        $estado.innerText = "Toca START para empezar el juego";
+
+        jugadaMaquina = [];
+        jugadaUsuario = [];
+        nivel = 1;
+
+        
+        console.log ("REINICIAR");
+    }
+
     
+
+  function bloquearStart(){
+
+    $botonStart.onclick = function (){console.log("START bloqueado");}
+
+
+
+  }
+
+  function desbloquearStart(){
+
+    $botonStart.onclick = function (){
+    
+        bloquearCuadrosUsuario();
+        
+        reiniciar();
+    
+       
+    
+        
+        $estado.innerText = "Turno de la Máquina. Estás en el nivel " + nivel;
+        
+       
+        
+    
+        jugar(jugadaMaquina);
+    
+       bloquearStart(); 
+        
+    }
+
+
+
+
+
+  }
+
+
+
+
+
+  function resaltarCuadrosUsuario (cuadro){ //toma la del usuario
+
+        
+    if (cuadro === $cuadroRojo){
+
+        $cuadroRojo.style.background = "#fc8787";
+        $cuadroRojo.style.transform = "scale(1.1)";
+
+        setTimeout (function(){
+
+            $cuadroRojo.style.background = "red";
+            $cuadroRojo.style.transform = "scale(1)";
+
+        },500);
+    }
+
+    if(cuadro === $cuadroAzul){
+
+        $cuadroAzul.style.background = " #717dfa ";
+        $cuadroAzul.style.transform = "scale(1.1)";
+        setTimeout (function(){
+
+            $cuadroAzul.style.background = "blue";
+            $cuadroAzul.style.transform = "scale(1)";
+
+        },500);
+
+
+    }
+    
+    if( cuadro === $cuadroVerde){
+
+
+        $cuadroVerde.style.background = " #62f64e ";
+        $cuadroVerde.style.transform = "scale(1.1)";
+
+        setTimeout (function(){
+
+            $cuadroVerde.style.background = "green";
+            $cuadroVerde.style.transform = "scale(1)";
+
+        },500);
+    }
+
+    if(cuadro === $cuadroAmarillo){
+
+        $cuadroAmarillo.style.background = "#fafa8e ";
+        $cuadroAmarillo.style.transform = "scale(1.1)";
+
+        setTimeout (function(){
+
+            $cuadroAmarillo.style.background = "yellow";
+            $cuadroAmarillo.style.transform = "scale(1)";
+
+        },500);
+    }
+
+}
