@@ -56,14 +56,7 @@ $botonStart.onclick = function (){
    
 
     function jugar(){
-
-       // if (nivel === 3){
-
-         //   alert('GANASTE. Toca Start para empezar de nuevo');
-           // reiniciar();
-       // }
-        
-        
+    
      $estado.innerText = "Turno de la Máquina. Estás en el nivel " + nivel;
         
        agregarCuadroAleatorio(jugadaMaquina);
@@ -80,25 +73,14 @@ $botonStart.onclick = function (){
         
 
         setTimeout(function(){
-
            
-            
-            resaltarCuadros(cuadro) ;
-            
-
-              
-            
-            
-           
-            
+            resaltarCuadros(cuadro) ;  
             
         },retrasoMaquina);
 
+            });
         
-        
-    });
-        
-        setTimeout ( function (){
+            setTimeout ( function (){
 
             $estado.innerText = "Ahora es tu turno !"
 
@@ -112,28 +94,16 @@ $botonStart.onclick = function (){
                 bloquearCuadrosUsuario();
 
                 revisarJugadas(jugadaMaquina,jugadaUsuario,nivel);
-
-
-               
-
             }
             ,retrasoJugador);
 
            
-
         },retrasoJugador);
-
-       
 
         jugadaUsuario = [];
 
         nivel++;
-
-       
-       
-            
-          
-      
+    
     }
 
 
@@ -166,50 +136,35 @@ $botonStart.onclick = function (){
         }
         if (evaluacion === bien && nivel === 3){
 
-            console.log("GANASTE");
+           // console.log("GANASTE");
             alert("SIMON DICE: GANASTE !!!")
             $estado.innerText = "Simón dice: GANASTE !!!. Toca START para empezar una nueva partida.";
             desbloquearStart();
         }
         
         if(evaluacion === bien && nivel !=3 ){
-             
-
-                
-                
-
+                  
             setTimeout(jugar,2000);
 
            
-    
              } 
-             
-             
              
              else if(evaluacion === mal){
  
                  setTimeout(function(){
       
-
                  bloquearCuadrosUsuario();
                  $estado.innerText = "Perdiste!! Toca Start para empezar de nuevo."
                  desbloquearStart();
                      
                 }, 2000);
     
-                
-    
-    
             }
- 
-          
+        
     }
          
 
     function bloquearCuadrosUsuario(){
-
-
-        
 
         $cuadroRojo.onclick = function (){
 
@@ -235,10 +190,8 @@ $botonStart.onclick = function (){
            // jugadaUsuario.push($cuadroVerde);
         }
                     
-    
-
-
     }
+
     function manejarCuadrosUsuario(){
 
         
@@ -270,20 +223,9 @@ $botonStart.onclick = function (){
             jugadaUsuario.push($cuadroVerde);
         }
 
-        
-       
-        
-        
-
-
-        
-
-
-
     }
 
     function agregarCuadroAleatorio (jugadaMaquina){
-
 
 
         let $jugadaMaquina = jugadaMaquina;
@@ -299,10 +241,6 @@ $botonStart.onclick = function (){
 
             
         return $jugadaMaquina;
-
-        
-
-
 
     }
 
@@ -397,30 +335,16 @@ $botonStart.onclick = function (){
         bloquearCuadrosUsuario();
         
         reiniciar();
-    
-       
-    
-        
+     
         $estado.innerText = "Turno de la Máquina. Estás en el nivel " + nivel;
         
-       
-        
-    
         jugar(jugadaMaquina);
     
        bloquearStart(); 
         
     }
 
-
-
-
-
   }
-
-
-
-
 
   function resaltarCuadrosUsuario (cuadro){ //toma la del usuario
 
